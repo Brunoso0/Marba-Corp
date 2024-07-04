@@ -1,0 +1,287 @@
+/* Reset some basic elements */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    color: white;
+    background-color: black;
+}
+
+header {
+    color: white;
+    padding: 20px 0;
+    width: 100%; /* Garante que o cabeçalho ocupe a largura total */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 120px; /* Adjust the padding value */
+    width: calc(100% - 400px); /* Subtract the total padding value from the width */
+    overflow-x: hidden;
+}
+nav img {
+    width: 200px; /* Adjust based on actual logo size */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    color: #ffffff;
+    padding: 0 .25rem;
+    margin: 0 -.25rem;
+    transition: color .3s ease-in-out;
+    text-decoration: none;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #4720d3;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+  
+/* Presentational styles */
+nav ul li a {
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+nav ul li:hover {
+    position: relative;
+}
+
+nav ul li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: black;
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li:hover::after {
+    width: 100%;
+}
+
+.nav ul li::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: black;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav ul li:hover::before {
+    width: 0;
+    left: auto;
+    right: 0;
+}
+
+nav button {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+
+button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    background-color: #000000;
+    padding: 1em 2em;
+    border: 0.06px solid rgba(65, 65, 65, 0.527);
+    border-radius: .8rem;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+button span:not(:nth-child(6)) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 30px;
+    width: 30px;
+    background-color: #203aac;
+    border-radius: 50%;
+    transition: .6s ease;
+}
+
+button span:nth-child(6) {
+    position: relative;
+}
+
+button span:nth-child(1) {
+    transform: translate(-3.3em, -4em);
+}
+
+button span:nth-child(2) {
+    transform: translate(-6em, 1.3em);
+}
+
+button span:nth-child(3) {
+    transform: translate(-.2em, 1.8em);
+}
+
+button span:nth-child(4) {
+    transform: translate(3.5em, 1.4em);
+}
+
+button span:nth-child(5) {
+    transform: translate(3.5em, -3.8em);
+}
+
+button:hover span:not(:nth-child(6)) {
+    transform: translate(-50%, -50%) scale(4);
+    transition: 1.5s ease;
+}
+
+.image-e-logo {
+    position: relative;
+    width: 100%; /* ajuste conforme necessário */
+}
+.image-fundo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Logo-centro {
+    position: absolute;
+    width: 20%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%; /* para que a imagem não ultrapasse os limites do container */
+    max-height: 100%; /* para que a imagem não ultrapasse os limites do container */
+    animation: pulse 4s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+main {
+    margin-top: 80px;
+    padding: 20px 10%;
+    width: 50%; /* Garante que o conteúdo principal ocupe a largura total */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo de main verticalmente */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Ajustado para conteúdo */
+    gap: 20px;
+    width: 100%; /* Garante que o grid-container ocupe a largura total */
+}
+
+.grid-item {
+    padding: 20px;
+}
+
+.grid-item p {
+    font-size: 14px;
+}
+.grid-item h2 {
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+iframe {
+    width: 100%; /* Adjust based on content */
+    border: none;
+}
+
+#grid-1 {
+    grid-column: 1; /* Span 2 columns */
+}
+#grid-2 {
+    grid-column: 1; /* Span 2 columns */
+    grid-row: 2;
+}
+#grid-3 {
+    grid-column: 2; /* Span 2 columns */
+    grid-row: 2;
+}
+#grid-3 {
+    text-align: right;
+}
+#grid-4 {
+    grid-column: 1; /* Span 2 columns */
+}
+
+/* Atualizações com base no HTML fornecido */
+.container-redes {
+    width: 100%; /* Garante que o container das redes ocupe a largura total */
+}
+
+.container-redes .grid-redes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 imagens em uma linha */
+    gap: 10px;
+    justify-content: center; /* Centraliza os itens da grid horizontalmente */
+}
+
+.container-redes .grid-redes div {
+    background-size: cover;
+    height: 100px; /* Ajuste baseado no tamanho real */
+}
+
+.container-redes .textos-redes .grid-textos-redes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Ajustado para 4 textos em uma linha */
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center; /* Centraliza os textos horizontalmente */
+}
+
+.container-redes .textos-redes .grid-textos-redes div {
+    padding: 10px;
+    text-align: center; /* Centraliza o texto dentro de cada div */
+}
