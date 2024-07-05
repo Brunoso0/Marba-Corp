@@ -190,7 +190,7 @@ button:hover span:not(:nth-child(6)) {
     transform: translate(-50%, -50%);
     max-width: 100%; /* para que a imagem não ultrapasse os limites do container */
     max-height: 100%; /* para que a imagem não ultrapasse os limites do container */
-    animation: pulse 4s infinite;
+    animation: pulse 9s infinite
 }
 
 @keyframes pulse {
@@ -315,6 +315,7 @@ iframe {
 }
 
 /* Atualizações com base no HTML fornecido */
+
 .container-redes {
     width: 100%; /* Garante que o container das redes ocupe a largura total */
 }
@@ -342,4 +343,103 @@ iframe {
 .container-redes .textos-redes .grid-textos-redes div {
     padding: 10px;
     text-align: center; /* Centraliza o texto dentro de cada div */
+}
+
+.box-image {
+    display: flex;
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    padding: 60px;
+    margin: 200px 0; /* Espaçamento entre os boxes */
+    width: 43rem;
+    height: 20rem;
+    border-radius: 50px;
+    position: relative; /* Necessário para posicionamento absoluto dos filhos */
+    overflow: hidden;
+}
+
+.box-image::before {
+    content: "";
+    position: absolute;
+    margin-left: 60px;
+    width: 500px;
+    height: 400%;
+    background: linear-gradient(180deg, #1900ff, #1900ff);
+    opacity: 0.3;
+    filter: brightness(100%) blur(39px) contrast(1000%);
+    animation: animate 7s linear infinite;
+}
+
+@keyframes animate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.box-image::after{
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: inherit;
+}
+
+/* .fundo-azul {
+    background: 
+    linear-gradient(27deg, #0033cc 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #0044ff 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, #0055ff 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, #0066ff 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, #0077ff 10px, transparent 10px),
+    linear-gradient(#0008ff 25%, #1319c4 25%, #1a0aaa 50%, transparent 50%, transparent 75%, #1319c4 75%, #0008ff);
+    background-color: #0033cc;
+    position: absolute;
+    top: -70px; /* Ajusta a posição para centralizar */
+    left: -30px; /* Ajusta a posição para centralizar */
+    width: calc(100% + 110px); /* Aumenta a largura */
+    height: calc(100% + 130px); /* Aumenta a altura */
+    border-radius: 80px;
+    z-index: 0; /* Coloca a div no fundo */
+    animation: pulsar 3s infinite; /* Animação de pulsação */
+    filter: blur(50px);
+}
+
+@keyframes pulsar {
+    0% {
+        transform: scale(0.7);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(0.7);
+        opacity: 0.5;
+    }
+} */
+
+.image-container {
+    flex: 1; /* Ocupa 1 parte do espaço disponível */
+    max-width: 150px; /* Define uma largura máxima para a imagem */
+    margin-right: 100px; /* Espaçamento entre a imagem e o texto */
+    margin-left: 30px;
+    position: relative; /* Necessário para posicionamento absoluto dos filhos */
+    z-index: 1; /* Coloca a imagem acima da div fundo-azul */
+}
+
+.image-container img {
+    width: 200px; /* Faz a imagem ocupar toda a largura do container */
+    height: auto; /* Mantém a proporção da imagem */
+    filter: invert(50%) contrast(170%) brightness(1000%);
+    position: relative; /* Necessário para garantir que a imagem fique acima da div fundo-azul */
+    z-index: 1; /* Coloca a imagem acima da div fundo-azul */
+}
+
+.text-container {
+    flex: 2; /* Ocupa 3 partes do espaço disponível */
+    text-align: right;
+    font-family: "Montserrat", sans-serif;
+    z-index: 1;
 }
