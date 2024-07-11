@@ -26,6 +26,7 @@ nav {
     padding: 0 120px; /* Adjust the padding value */
     width: calc(100% - 400px); /* Subtract the total padding value from the width */
     overflow-x: hidden;
+    margin: 0 auto;
 }
 nav img {
     width: 200px; /* Adjust based on actual logo size */
@@ -112,70 +113,60 @@ nav ul li:hover::after {
     right: 0;
 }
 
-nav button {
-    padding: 10px 20px;
-    cursor: pointer;
-    color: rgb(255, 255, 255);
-}
-
-button {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    color: white;
-    background-color: #000000;
-    padding: 1em 2em;
-    border: 0.06px solid rgba(65, 65, 65, 0.527);
-    border-radius: .8rem;
+.animated-button {
     position: relative;
+    display: inline-block;
+    padding: 13px 28px;
+    border: none;
+    background-color: #081169;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
     cursor: pointer;
+    border-radius: 8px;
     overflow: hidden;
-}
-
-button span:not(:nth-child(6)) {
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .animated-button:before {
+    content: "";
     position: absolute;
-    left: 50%;
     top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    height: 30px;
-    width: 30px;
-    background-color: #203aac;
-    border-radius: 50%;
-    transition: .6s ease;
-}
-
-button span:nth-child(6) {
+    width: 120%;
+    height: 120%;
+    background-color: #fff;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .animated-button span {
     position: relative;
-}
-
-button span:nth-child(1) {
-    transform: translate(-3.3em, -4em);
-}
-
-button span:nth-child(2) {
-    transform: translate(-6em, 1.3em);
-}
-
-button span:nth-child(3) {
-    transform: translate(-.2em, 1.8em);
-}
-
-button span:nth-child(4) {
-    transform: translate(3.5em, 1.4em);
-}
-
-button span:nth-child(5) {
-    transform: translate(3.5em, -3.8em);
-}
-
-button:hover span:not(:nth-child(6)) {
-    transform: translate(-50%, -50%) scale(4);
-    transition: 1.5s ease;
-}
-
+    z-index: 1;
+  }
+  
+  .animated-button:hover {
+    color: #2136f3;
+    background-color: #fff;
+    box-shadow: 0 0 20px hsla(263, 77%, 31%, 0);
+  }
+  
+  .animated-button:active {
+    scale: 0.9;
+  }
+  
+  .animated-button:hover:before {
+    transform: translate(-50%, -50%) rotate(45deg);
+    opacity: 1;
+  }
+  
 .image-e-logo {
     position: relative;
     width: 100%; /* ajuste conforme necessário */
 }
+
 .image-fundo {
     width: 100%;
     height: 100%;
@@ -272,8 +263,8 @@ iframe {
 #grid-3 {
     grid-column: 2; /* Span 2 columns */
     grid-row: 2;
-    width: 40rem;
-    margin-left: auto;
+    width: 32rem;
+    margin-left: -80px;
 }
 #grid-3 {
     text-align: right;
@@ -320,6 +311,10 @@ iframe {
     width: 100%; /* Garante que o container das redes ocupe a largura total */
 }
 
+.grid-redes img {
+    width: 150px;
+}
+
 .container-redes .grid-redes {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 imagens em uma linha */
@@ -345,28 +340,34 @@ iframe {
     text-align: center; /* Centraliza o texto dentro de cada div */
 }
 
-.box-image {
+.box {
+    position: relative;
+    width: 45rem;
+    height: 25rem;
+    border-radius: 30px;
+    margin-top: 100px;
     display: flex;
-    align-items: center; /* Alinha os itens verticalmente ao centro */
-    padding: 60px;
-    margin: 200px 0; /* Espaçamento entre os boxes */
-    width: 43rem;
-    height: 20rem;
-    border-radius: 50px;
-    position: relative; /* Necessário para posicionamento absoluto dos filhos */
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
 }
 
-.box-image::before {
+.box::before{
     content: "";
     position: absolute;
-    margin-left: 60px;
-    width: 500px;
-    height: 400%;
-    background: linear-gradient(180deg, #1900ff, #1900ff);
-    opacity: 0.3;
-    filter: brightness(100%) blur(39px) contrast(1000%);
-    animation: animate 7s linear infinite;
+    width: 250px;
+    height: 200%;
+    background: linear-gradient(180deg, #0437b8, #0437b8);
+    filter: blur(15px) opacity(70%);
+    animation: animate 6s linear infinite;
+}
+
+.box::after{
+    content: "";
+    position: absolute;
+    background-image: url('../img/fundo-preto.png');
+    inset: 2px;
+    border-radius: inherit;
 }
 
 @keyframes animate {
@@ -378,14 +379,7 @@ iframe {
     }
 }
 
-.box-image::after{
-    content: "";
-    position: absolute;
-    inset: 5px;
-    border-radius: inherit;
-}
-
-/* .fundo-azul {
+.fundo-azul {
     background: 
     linear-gradient(27deg, #0033cc 5px, transparent 5px) 0 5px,
     linear-gradient(207deg, #0044ff 5px, transparent 5px) 10px 0px,
@@ -418,13 +412,13 @@ iframe {
         transform: scale(0.7);
         opacity: 0.5;
     }
-} */
+} 
 
 .image-container {
     flex: 1; /* Ocupa 1 parte do espaço disponível */
     max-width: 150px; /* Define uma largura máxima para a imagem */
     margin-right: 100px; /* Espaçamento entre a imagem e o texto */
-    margin-left: 30px;
+    margin-left: 100px;
     position: relative; /* Necessário para posicionamento absoluto dos filhos */
     z-index: 1; /* Coloca a imagem acima da div fundo-azul */
 }
@@ -441,5 +435,40 @@ iframe {
     flex: 2; /* Ocupa 3 partes do espaço disponível */
     text-align: right;
     font-family: "Montserrat", sans-serif;
+    margin-right: 50px;
     z-index: 1;
+}
+
+.image-large {
+    position: relative;
+    width: 100vw; /* Faz com que ocupe 100% da largura da viewport */
+    height: auto;
+    margin-top: 150px; /* Mantém o espaçamento desejado do topo */
+    transform: translateX(-10px);
+    overflow: hidden;
+}
+
+.image-100 {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.image-100 img {
+    width: 100%;
+    height: auto;
+    display: block; /* Remove espaços em branco abaixo da imagem */
+}
+
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    letter-spacing: 5px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px; /* Ajuste o tamanho da fonte conforme necessário */
+    z-index: 1; /* Garante que o texto fique acima da imagem */
 }
