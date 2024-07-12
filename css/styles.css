@@ -309,15 +309,18 @@ iframe {
 
 .container-redes {
     width: 100%; /* Garante que o container das redes ocupe a largura total */
+    padding-top: 100px;
 }
 
 .grid-redes img {
-    width: 150px;
+    width: 500px;
+    margin-right: 160px;
+    margin-left: 120px;
 }
 
 .container-redes .grid-redes {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 imagens em uma linha */
+    grid-template-columns: 1fr 1.5fr; /* 4 imagens em uma linha */
     gap: 10px;
     justify-content: center; /* Centraliza os itens da grid horizontalmente */
 }
@@ -325,18 +328,42 @@ iframe {
 .container-redes .grid-redes div {
     background-size: cover;
     height: 100px; /* Ajuste baseado no tamanho real */
+    float: right;
 }
 
 .container-redes .textos-redes .grid-textos-redes {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Ajustado para 4 textos em uma linha */
-    gap: 10px;
-    margin-top: 20px;
+    grid-template-columns: 1fr; /* Ajustado para 4 textos em uma linha */
+    gap: 60px;
+    margin-top: 60px;
     justify-content: center; /* Centraliza os textos horizontalmente */
 }
 
-.container-redes .textos-redes .grid-textos-redes div {
-    padding: 10px;
+.grid-textos-redes {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    width: 70%;
+    margin-right: 150px;
+}
+
+.texto1 h2, .texto2 h2, .texto3 h2, .texto4 h2 {
+    text-align: right;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+    border-right: #0032ad 2px solid;
+    font-family: "Anton", sans-serif;
+    font-size: 30px;
+}
+
+.texto1 p, .texto2 p, .texto3 p, .texto4 p {
+    text-align: left;
+    font-size: 15px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.container-red3s .textos-redes .grid-textos-redes div {
+    padding: 14; 
     text-align: center; /* Centraliza o texto dentro de cada div */
 }
 
@@ -458,6 +485,7 @@ iframe {
     width: 100%;
     height: auto;
     display: block; /* Remove espaços em branco abaixo da imagem */
+    filter: opacity(70%);
 }
 
 .text-overlay {
